@@ -1,0 +1,286 @@
+/* TYPES OF CSS SELECTORS video 89 */
+
+/* 1. MULTIPLE SELECTORS 
+selector1, selector2{
+  .....
+}
+
+h1, h2, h3, p {
+  color: red;
+} */
+
+/* 2. HIERARCHICAL SELECTOR
+selector1 selector2{
+  ....  -->this is read right to left ie target selector2 which is inside selector1
+  selector2 = child
+  selector1 = parent
+  selector1 & selector2 has SPACE in between
+}
+
+div h1{
+  color: red;  --> targeting all h1 inside div
+}
+
+.container-fluid #title{   --> we have targeted all the title id which is inside class container-fluid
+  text-align: left;
+} */
+
+/* 3. COMBINED SELECTOR
+selector1.selector2{  --> OR selector1#selector2
+  .... they both have to occur in same element ie <h1 id="title">heading</h1>
+  selector1 & selector2 has NO SPACE in between
+  they are read from RIGHT TO LEFT ie h1 which has an id title
+}
+
+h1#title{   ----> ie <h1 id="title">heading</h1> (h1 & #title are of same element)
+  color: red;
+}  
+*/
+
+
+/* PRACTICAL EXAPMPLE
+<div class="container">
+  <h1 id="heading" class="title">Hello world</h1>
+</div>
+
+<div class="container-fluid">
+  <h1 class="title">Good bye world</h1>
+</div>
+
+CODE TO COLOR hello world RED
+
+.container .title{
+  color: red;
+}  
+
+.container.title{  --> WITHOUT SPACE means that an element which has both class .container & .title
+  ie <h1 class="title container">Good bye world</h1>
+  color: red;       --> this will not work as there is no such element with both the classes (container & title)
+}  
+
+h1#heading{   --> this will target h1 with id heading
+  color: green;
+}
+
+*/
+
+/* CSS SELECTORS PRIORITY video 91 */
+/* <h1 id="heading" class="title"> Hello world </h1>
+
+h1{
+  color: red;
+  color: green; -->this will get priority (because of ORDER/SEQUENCE)
+}
+
+.title{
+  color: yellow; --> class has higher priority than element
+}
+
+#heading{
+  color: blue;  -->id has highest priority than element and class
+}
+
+PRIORITY ORDER
+INLINE CSS > ID SELECTOR > CLASS SELECTOR > ELEMENT SELECTOR
+highest to lowest priority
+*/
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+  }
+  
+  p {
+    color: #8f8f8f;
+  }
+  
+  /* Headings */
+  
+  .big-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    line-height: 1.5;
+  }
+  
+  .section-heading {
+    font-size: 3rem;
+    line-height: 1.5;
+  }
+  
+  /* Containers */
+  
+  .container-fluid{
+    padding: 7% 15%;
+  }
+  
+  /* Sections */
+  
+  .colored-section {
+    background-color: #ff4c68;
+    color: #fff;
+  }
+  
+  .white-section {
+    background-color: #fff;
+  }
+  
+  /* Navigation Bar */
+  
+  .navbar {
+    padding: 0 0 4.5rem;
+  }
+  
+  .navbar-brand {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .nav-item {
+    padding: 0 18px;
+  }
+  
+  .nav-link {
+    font-size: 1.2rem;
+    font-family: "Montserrat-Light";
+  }
+  
+  /* Buttons */
+  
+  .download-button {
+    margin: 5% 3% 5% 0;
+  }
+  
+  /* Title Section */
+  
+  #title .container-fluid {
+    padding: 3% 15% 7%;
+    /* padding: (top) (left & right) (bottom) */
+    text-align: left;
+  }
+  
+  /* Title Image */
+  
+  .title-image {
+    width: 60%;
+    transform: rotate(25deg);
+    position: absolute;         
+    /* REFER Z INDEX FLOWCHART TO SEE HOW HOW THE IMG IS STILL BELOW WITHOUT USING Z-INDEX (ans. BY ONLY POSITIONING & FLOW/SEQUENCE [ans #feature code is written below the .title-image code] --->REFER z-index flowchart.png */
+    right: 30%;
+  }
+
+  /* Z-INDEX works only when something (either 1 or both) is positioned (ie absolute, relative or fixed) */
+  /* ABSOLUTE takes any html element out of the flow of the html so it no longer stacks or follow the natural flow or order */
+
+  /* REFER Z-INDEX FLOWCHART ---> z-index flowchart.png */
+  /* HOW TO CUT/HIDE THE BOTTOM IMG USING Z-INDEX */
+  /* .title-image{
+      width: 60%;
+      transform: rotate(25deg);
+      right: 30%;
+      position: absolute;
+  }
+  #features{
+      position: relative;
+      z-index: 1;
+  } */
+  /* REFER Z-INDEX FLOWCHART ---> z-index flowchart.png*/
+  
+  /* Features Section */
+  
+  #features {
+    position: relative;
+  }
+  
+  .feature-title {
+    font-size: 1.5rem;
+  }
+  
+  .feature-box {
+    padding: 4.5%;
+  }
+  
+  .icon {
+    color: #ef8172;
+    margin-bottom: 1rem;
+  }
+  
+  .icon:hover {
+    color: #ff4c68;
+  }
+  
+  /* Testimonial Section */
+  
+  #testimonials {
+    background-color: #ef8172;
+  }
+  
+  .testimonial-text {
+    font-size: 3rem;
+    line-height: 1.5;
+  }
+  
+  .testimonial-image {
+    width: 10%;
+    border-radius: 100%;
+    margin: 20px;
+  }
+  
+  
+  #press {
+    background-color: #ef8172;
+    padding-bottom: 3%;
+  }
+  
+  .press-logo {
+    width: 15%;
+    margin: 20px 20px 50px;
+  }
+  
+  /* Pricing Section */
+  
+  #pricing {
+    padding: 100px;
+  }
+  
+  .price-text {
+    font-size: 3rem;
+    line-height: 1.5;
+  }
+  
+  .pricing-column {
+    padding: 3% 2%;
+  }
+  
+  /* CTA Section */
+  
+  
+  /* Footer Section */
+  
+  
+  .social-icon {
+    margin: 20px 10px;
+  }
+  
+  @media (max-width: 1028px) {
+  /* MAX-WIDTH ie when screen size is 1028px or less */
+  /* MIN-WIDTH ie with screen size 1028px or geater */
+    #title {
+      text-align: center;
+    }
+  
+    .title-image {
+      position: static;
+      transform: rotate(0);
+    }
+  }
+
+  /* @media (min-width: 900px) and (max-width: 1080px){
+    willl work for greater than 900px but less than 1080px
+  } */
+  
